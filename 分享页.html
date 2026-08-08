@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9x9 数学训练 · 嘉兴辰星留学-HU</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  background:linear-gradient(160deg,#eef2fb,#f7f4ff);color:#1e2749;min-height:100vh}
+.wrap{max-width:640px;margin:0 auto;padding:22px 16px 60px}
+.hero{background:linear-gradient(135deg,#4f6ef7,#8b5cf6);color:#fff;border-radius:22px;padding:26px 22px;text-align:center;
+  box-shadow:0 16px 40px rgba(79,110,247,.35)}
+.hero .brand{font-size:13px;opacity:.92;letter-spacing:1px}
+.hero h1{font-size:24px;margin:8px 0 4px}
+.hero .ver{font-size:12px;opacity:.85;background:rgba(255,255,255,.2);display:inline-block;padding:3px 12px;border-radius:99px}
+.hero .desc{font-size:13px;opacity:.92;margin-top:10px;line-height:1.7}
+.card{background:#fff;border-radius:18px;box-shadow:0 10px 28px rgba(30,39,73,.08);padding:20px;margin-top:16px}
+.card h2{font-size:16px;margin:0 0 12px}
+.linkbox{display:flex;gap:8px;align-items:center;background:#f4f6ff;border:1.5px dashed #b9c5f2;border-radius:12px;padding:10px 12px}
+.linkbox input{flex:1;border:none;background:none;font-size:13px;color:#3b4a8f;outline:none;min-width:0}
+.copybtn{border:none;border-radius:10px;padding:9px 14px;background:linear-gradient(135deg,#4f6ef7,#8b5cf6);color:#fff;font-size:13px;font-weight:600;cursor:pointer}
+.copybtn:active{transform:scale(.96)}
+.qr{text-align:center;margin-top:14px}
+.qr img{width:190px;height:190px;border:6px solid #fff;border-radius:14px;box-shadow:0 6px 18px rgba(30,39,73,.12)}
+.qr .t{font-size:12px;color:#6b7394;margin-top:8px}
+.bigbtn{display:block;text-align:center;text-decoration:none;border-radius:14px;padding:15px;margin-top:14px;
+  background:linear-gradient(135deg,#16a34a,#15803d);color:#fff;font-size:16px;font-weight:700;box-shadow:0 8px 20px rgba(22,163,74,.3)}
+.steps{font-size:14px;line-height:1.9;color:#33406b}
+.steps b{color:#4f6ef7}
+.steps .os{font-weight:700;font-size:15px;margin-top:10px;color:#1e2749}
+.note{font-size:12px;color:#6b7394;line-height:1.8;margin-top:10px}
+.feat{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.feat span{background:#f1f4ff;color:#4f6ef7;font-size:12px;font-weight:700;border-radius:99px;padding:4px 12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <div class="brand">嘉兴辰星留学-HU</div>
+    <h1>🧮 9x9 数学训练</h1>
+    <span class="ver">九九乘法口诀 · 除法 · 错题本 · 5分钟计时赛</span>
+    <div class="desc">顺序练习 · 左小右大 · 左大右小 · 收集星星点亮青铜/白银/黄金勋章</div>
+    <div class="feat" style="justify-content:center;">
+      <span>✖️ 乘法 3 阶段</span><span>➗ 除法 3 阶段</span><span>📕 错题本</span><span>⏱️ 计时赛</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>📎 分享链接</h2>
+    <div class="linkbox">
+      <input id="link" readonly value="正在获取链接…" onclick="this.select()">
+      <button class="copybtn" onclick="copyLink()">复制链接</button>
+    </div>
+    <div class="qr">
+      <img id="qrimg" alt="二维码" style="display:none">
+      <div class="t">用手机相机 / 微信扫一扫，即可打开</div>
+    </div>
+    <a class="bigbtn" id="startBtn" href="#">🚀 在这台设备上开始训练</a>
+  </div>
+
+  <div class="card">
+    <h2>📱 各平台打开方式</h2>
+    <div class="steps">
+      <div class="os">📱 iPhone / iPad（iOS）</div>
+      用 <b>Safari</b> 打开链接 → 点底部 <b>分享 → 添加到主屏幕</b>，即可像 App 一样全屏使用。
+      <div class="os">🤖 安卓 / 华为（HarmonyOS）</div>
+      用 <b>Chrome / 华为浏览器 / 自带浏览器</b> 打开链接 → 菜单里 <b>添加到主屏幕</b>。
+      <div class="os">💻 macOS / Windows 电脑</div>
+      在浏览器打开链接即可使用。
+    </div>
+    <div class="note">
+      ⚠️ 手机浏览器出于安全策略，声音需要<b>点击屏幕后才能播放</b>（首次点击任意处即可）。<br>
+      🌐 若在局域网分享，链接仅在<b>同一 WiFi</b> 内有效；如需"任何网络都能打开"的公网链接，用电脑上的 <b>deploy_9x9_math.py</b> 一键发布到 GitHub Pages。
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var here = location.href;
+  var appUrl = here;
+  try{
+    if(here.indexOf('分享页')>=0){ appUrl = here.replace('分享页.html','index.html'); }
+  }catch(e){}
+  document.getElementById('link').value = appUrl;
+  document.getElementById('startBtn').href = appUrl;
+  var qr = document.getElementById('qrimg');
+  qr.onload = function(){ qr.style.display='inline-block'; };
+  qr.onerror = function(){ qr.style.display='none'; document.querySelector('.qr .t').textContent='当前网络无法加载二维码，请直接复制上方链接发送'; };
+  qr.src = 'https://api.qrserver.com/v1/create-qr-code/?size=360x360&margin=8&data=' + encodeURIComponent(appUrl);
+})();
+function copyLink(){
+  var inp = document.getElementById('link');
+  inp.focus(); inp.select();
+  var done = function(){ alert('链接已复制，发送给同学即可使用！'); };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(inp.value).then(done, function(){ document.execCommand('copy'); done(); });
+  } else { document.execCommand('copy'); done(); }
+}
+</script>
+</body>
+</html>
