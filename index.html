@@ -442,7 +442,7 @@ section.show{display:block;}
 <script>
 'use strict';
 /* ================= 基础 ================= */
-var APP_VERSION='v1.0.0';
+var APP_VERSION='v1.0.1';
 var ATTR='嘉兴辰星留学-HU';
 function $(id){return document.getElementById(id);}
 function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
@@ -717,7 +717,7 @@ function renderWrong(){
     var dots='';
     for(var s=1;s<=3;s++){dots+='<span class="'+(s<=d.streak?'on':'off')+'">●</span>';}
     html+='<div class="wrong-item">'+
-      '<div class="qt"><span class="ty">'+(d.kind==='mul'?'乘法':'除法')+'</span>'+esc(d.expr)+' = '+d.ans+'</div>'+
+      '<div class="qt"><span class="ty">'+(d.kind==='mul'?'乘法':'除法')+'</span>'+esc(d.expr)+' = ?</div>'+
       '<div class="prog">'+dots+'</div>'+
       '<button data-wk="'+esc(arr[i].key)+'">练这题</button>'+
     '</div>';
